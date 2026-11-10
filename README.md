@@ -27,9 +27,9 @@ A set of custom editor toolbar widget for **Unity 6** to make development easier
    https://github.com/Theo-Mestre/better-editor-toolbar.git
    ```
 
-   ---
+---
 
-   ## Acknowledgement
+## Acknowledgement
 
-   This project has been inspired by [git-amend's video](https://www.youtube.com/watch?v=_UEtbsHAGIg&t=407s) on how to customize the toolbar. 
-   The scripts change counter was inspired by [this thread](https://discussions.unity.com/t/how-do-i-make-auto-refresh-turn-into-the-same-functionality-as-the-play-button/870829).
+This project has been inspired by [git-amend's video](https://www.youtube.com/watch?v=_UEtbsHAGIg&t=407s) on how to customize the toolbar. 
+The scripts change counter was inspired by [this thread](https://discussions.unity.com/t/how-do-i-make-auto-refresh-turn-into-the-same-functionality-as-the-play-button/870829).
