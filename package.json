@@ -1,9 +1,9 @@
 {
-  "name": "com.Theo-Mestre.Better-Editor-Toolbar",
+  "name": "com.theo-mestre.better-editor-toolbar",
   "version": "1.0.0",
   "displayName": "Better Editor Toolbar",
   "description": "Better Editor Toolbar is a Unity Editor extension that enhances the default toolbar in the Unity Editor, providing additional functionality to make development more efficient.",
-  "unity": "6000.0",
+
   "author": {
     "name": "Theo Mestre",
     "url": "https://github.com/Theo-Mestre"
