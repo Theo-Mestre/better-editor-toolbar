@@ -1,3 +1,7 @@
+## [1.1.0] - 2026-11-24
+### QoL Improvements
+- Playing from the first build setting scene now reopen the last scene you were in before starting the game after stopping the game
+
 ## [1.0.0] - 2026-11-10
 ### First Release
 - Created dropdown to change scene rapidly

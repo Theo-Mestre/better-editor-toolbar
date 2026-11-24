@@ -11,6 +11,27 @@ namespace Core.Editor.Toolbar
     {
         #region Start Button
         private const string k_playFirstIcon = "SceneSet Icon";
+        private const string k_previousSceneKey = "MainToolbarSceneControls_PreviousScene";
+
+        [InitializeOnLoadMethod]
+        private static void Initialize()
+        {
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredEditMode)
+            {
+                string previousScenePath = SessionState.GetString(k_previousSceneKey, string.Empty);
+                if (!string.IsNullOrEmpty(previousScenePath))
+                {
+                    SessionState.EraseString(k_previousSceneKey);
+                    EditorSceneManager.OpenScene(previousScenePath);
+                }
+            }
+        }
 
         [MainToolbarElement("SceneControls/PlayFirstScene", defaultDockPosition = MainToolbarDockPosition.Middle)]
         public static MainToolbarElement PlayFirstSceneButton()
@@ -42,6 +63,12 @@ namespace Core.Editor.Toolbar
                 // Prompt to save modified scenes before switching
                 if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                 {
+                    string currentScenePath = EditorSceneManager.GetActiveScene().path;
+                    if (!string.IsNullOrEmpty(currentScenePath) && currentScenePath != firstScene.path)
+                    {
+                        SessionState.SetString(k_previousSceneKey, currentScenePath);
+                    }
+
                     EditorSceneManager.OpenScene(firstScene.path);
                     EditorApplication.isPlaying = true;
                 }
@@ -150,5 +177,5 @@ namespace Core.Editor.Toolbar
             }
         }
         #endregion
-    } 
+    }
 }
